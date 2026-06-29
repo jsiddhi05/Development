@@ -8,10 +8,9 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #454040;
+            background-color: #3d3b3b;
             color: white;
             padding: 20px;
-            
         }
 
         .nav-container {
@@ -21,57 +20,168 @@
         h2 {
             margin-bottom: 10px;
         }
-        .nav1{
+
+        /* ==========================
+           Variation 1
+        ========================== */
+
+        .nav1 {
             background-color: #eaeaed;
             padding: 10px;
         }
-        .nav1 ul{
-            list-style-type: none;
+
+        .nav1 ul {
+            list-style: none;
             display: flex;
-            margin:0;
-            padding:0;
-            justify-content:space-around;
+            justify-content: space-around;
+            margin: 0;
+            padding: 0;
         }
-        .nav1 li{
-            display: inline;
-        }
-        .nav1 a{
+
+        .nav1 a {
             text-decoration: none;
-            color: #0f0e0e;
-            /* background-color: #d45b04; */
-            padding:5px 15px;
+            color: black;
+            padding: 5px 15px;
             position: relative;
         }
-        .nav1 a:after{
+
+        .nav1 a::after {
             content: "";
             position: absolute;
-            height: 2px;
-            width:100%;
+            left: 0;
             bottom: 0;
-            left:0;
-            background-color: #0a65c7;
+            width: 100%;
+            height: 2px;
+            background: #0a65c7;
             transform: scaleX(0);
-            transform: transform 0.3s
-            ease-in-out;
+            transition: transform 0.3s ease-in-out;
         }
-        .nav1 a:hover::after{
-            transform:scaleX(1);
-        }
-        .nav1 .login-btn{
-              background-color: #254bf6;
-              color: #fff ;
-              border:none;
-              padding:5px 15px;
-              border-radius: 5px;
-              cursor: pointer;
-         }
 
-        
+        .nav1 a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav1 .login-btn {
+            background: #254bf6;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* ==========================
+           Variation 2
+        ========================== */
+
+        .nav2 {
+            background: #038d56;
+            padding: 20px;
+            width: 200px;
+        }
+
+        .nav2 ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav2 li {
+            margin-bottom: 12px;
+        }
+
+        .nav2 a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+        }
+
+        .nav2 a:hover {
+            background: #0eaf19;
+        }
+
+        .nav2 .login-btn {
+            width: 100%;
+            padding: 10px;
+            background: #0be550;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav2 .login-btn:hover {
+            background: #011205;
+        }
+
+        /* ==========================
+           Variation 3
+        ========================== */
+
+        .nav3 {
+            background: #4cc4ca;
+            padding: 10px;
+        }
+
+        .nav3 ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav3 li {
+            position: relative;
+        }
+
+        .nav3 a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            display: block;
+        }
+
+        /* Hide dropdown */
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #3e3e3e;
+            min-width: 160px;
+            z-index: 1000;
+        }
+
+        /* Show dropdown */
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Dropdown links */
+
+        .dropdown-menu a {
+            padding: 12px;
+            color: white;
+        }
+
+        .dropdown-menu a:hover {
+            background: #555;
+        }
+
+        .nav3 button {
+            padding: 5px 12px;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
 
     <!-- Variation 1 -->
+
     <div class="nav-container">
         <h2>Variation 1: Horizontal with underline effect</h2>
 
@@ -86,6 +196,7 @@
     </div>
 
     <!-- Variation 2 -->
+
     <div class="nav-container">
         <h2>Variation 2: Vertical with hover effect</h2>
 
@@ -96,18 +207,31 @@
                 <li><a href="#">Products</a></li>
             </ul>
 
-            <button>Login</button>
+            <button class="login-btn">Login</button>
         </nav>
     </div>
 
     <!-- Variation 3 -->
+
     <div class="nav-container">
         <h2>Variation 3: Horizontal with dropdown</h2>
 
         <nav class="nav3">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
+
+                <li>
+                    <a href="#">Home</a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">About ▼</a>
+
+                    <div class="dropdown-menu">
+                        <a href="#">Our Story</a>
+                        <a href="#">Team</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </li>
 
                 <li class="dropdown">
                     <a href="#">Products ▼</a>
@@ -119,7 +243,10 @@
                     </div>
                 </li>
 
-                <li><button>Login</button></li>
+                <li>
+                    <button>Login</button>
+                </li>
+
             </ul>
         </nav>
     </div>
