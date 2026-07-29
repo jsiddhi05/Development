@@ -1,0 +1,17 @@
+# Node
+node_modules/
+
+# Generated CSS
+src/output.css
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
